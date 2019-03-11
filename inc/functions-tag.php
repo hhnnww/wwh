@@ -39,23 +39,24 @@ function modal_jiawei()
 
 // 线路页幻灯片
 function xianlu_hdp()
-{;?>
+{
+    ?>
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators d-none d-lg-flex">
         <?php
-$st_list = get_post_meta(get_the_ID(), 'st', )[0];
-    $count = count($st_list);
-    $x = 1;
-    while ($x <= $count) {
-        if ($x == 1) {
-            $a = 'active';
-        } else {
-            $a = '';
-        }
-        echo '<li data-target="#carouselExampleIndicators" data-slide-to="' . $x . '" class="' . $a . '"></li>';
-        $x++;
-    }
-    ?>
+            $st_list = get_post_meta(get_the_ID(), 'st')[0];
+            $count = count($st_list);
+            $x = 1;
+            while ($x <= $count) {
+                if ($x == 1) {
+                    $a = 'active';
+                } else {
+                    $a = '';
+                }
+                echo '<li data-target="#carouselExampleIndicators" data-slide-to="' . $x . '" class="' . $a . '"></li>';
+                $x++;
+            }
+        ?>
     </ol>
     <div class="carousel-inner">
         <div class="carousel-tuijian">
@@ -81,9 +82,6 @@ $st_list = get_post_meta(get_the_ID(), 'st', )[0];
         </div>
         <?php }
     ?>
-        <div class="carousel-tag">
-            <?php echo get_post_meta(get_the_ID(), 'tag')[0]; ?>
-        </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

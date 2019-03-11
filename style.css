@@ -135,7 +135,7 @@ img {
 }
 
 
-/* -----------公共样式结束--------- */
+/* -----------Ã¥â€¦Â¬Ã¥â€¦Â±Ã¦Â Â·Ã¥Â¼ÂÃ§Â»â€œÃ¦ÂÅ¸--------- */
 
 .site-header {
     height: 60px;
@@ -265,7 +265,7 @@ img {
 }
 
 
-/* ----------site-header结束---------- */
+/* ----------site-headerÃ§Â»â€œÃ¦ÂÅ¸---------- */
 
 .single,
 .page {
@@ -313,7 +313,7 @@ img {
 }
 
 .single .box-header h3 {
-    font-size: 1.1rem;
+    font-size: .95rem;
 }
 
 .single .box-content h4 {
@@ -393,7 +393,6 @@ img {
 .entry-xuzhi li {
     list-style: none;
 }
-
 
 /* single-post */
 
@@ -691,7 +690,7 @@ img {
 
 .jumbotron .btn-wwh {
     display: inline-block;
-    font-size: 1rem;
+    font-size: .9rem;
     padding: 3px 15px;
     height: auto;
     position: relative;
@@ -875,6 +874,11 @@ img {
 .home-model .container{
     padding-left: 35px;
     padding-right: 35px;
+}
+
+.home-wd-model .container{
+    padding-left:25px;
+    padding-right:25px;
 }
 
 .home-model .btn-wwh:after {

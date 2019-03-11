@@ -18,6 +18,12 @@ $w[] = array(
 );
 
 $w[] = array(
+    'name'=>'来源',
+    'id'=>'via',
+    'type'=>'text'
+);
+
+$w[] = array(
     'name' => '首图',
     'id' => 'st',
     'type' => 'gallery',
@@ -50,8 +56,38 @@ $w[] = array(
 );
 
 $w[] = array(
-    'name' => '标签',
-    'id' => 'tag',
+    'name' => '出发地',
+    'id' => 'chufadi',
+    'type' => 'text',
+);
+
+$w[] = array(
+    'name' => '目的地',
+    'id' => 'mudidi',
+    'type' => 'text',
+);
+
+$w[] = array(
+    'name' => '购物',
+    'id' => 'gouwu',
+    'type' => 'text',
+);
+
+$w[] = array(
+    'name' => '天数',
+    'id' => 'tianshu',
+    'type' => 'text',
+);
+
+$w[] = array(
+    'name' => '玩法',
+    'id' => 'wanfa',
+    'type' => 'text',
+);
+
+$w[] = array(
+    'name' => '交通',
+    'id' => 'jiaotong',
     'type' => 'text',
 );
 
@@ -123,6 +159,12 @@ $w[] = array(
     'name' => '费用不包含',
     'id' => 'bubaohan',
     'type' => 'textarea',
+);
+
+$w[] = array(
+    'name'=>'自费项目',
+    'id'=>'zifei',
+    'type'=>'textarea'
 );
 
 $w[] = array(

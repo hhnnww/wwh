@@ -69,7 +69,7 @@
                     </div>
 
                     <div class="weixin text-center mt-4">
-                        <a href="#" class="text-muted" data-target="#jiawei" data-toggle="modal">点击添加导游微信，了解优惠信息</a>
+                        <a href="#" class="text-muted" data-target="#jiawei" data-toggle="modal">点击添加导游微信，了解此产品优惠信息</a>
                     </div>
 
                 </div><!--- yuding --->

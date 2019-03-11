@@ -55,8 +55,13 @@ function post_views($before = '(点击 ', $after = ' 次)', $echo = 1)
 
 function content_str_replace($content = '')
 {
-    $content = str_replace('jpg', 'jpg?w=600', $content);
+    if (in_category('线路')) {
+        $content = str_replace('jpg', 'jpg?w=800', $content);
+    } else {
+        $content = str_replace('jpg', 'jpg?w=600', $content);
+    }
     $content = str_replace('<img', '<img class="img-fluid" ', $content);
+
     return $content;
 }
 add_filter('the_content', 'content_str_replace', 10);
@@ -136,14 +141,14 @@ function ex($width)
     return mb_strimwidth(strip_tags(apply_filters('the_content', get_the_content())), 0, $width, "...");
 }
 
-
-// 订单页面 
+// 订单页面
 function register_custom_menu_page()
 {
     add_menu_page('订单', '订单', 'administrator', 'dingdan', 'dingdan', '', 2);
 }
 add_action('admin_menu', 'register_custom_menu_page');
 
-function dingdan(){
+function dingdan()
+{
     include get_template_directory() . '/dingdan.php';
 }

@@ -17,6 +17,45 @@
                 ?>
             </div>
 
+            <div class="xianlu-shuxing mt-3 border-top border-bottom border-light py-3 small">
+                <div class="row">
+
+                    <div class="col-4 mb-3">
+                        <div class="title text-muted">出发地</div>
+                        <div class=""><?php echo get_post_meta(get_the_ID(),'chufadi')[0];?></div>
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <div class="title text-muted">目的地</div>
+                        <div class=""><?php echo get_post_meta(get_the_ID(),'mudidi')[0];?></div>
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <div class="title text-muted">购物</div>
+                        <div class=""><?php echo get_post_meta(get_the_ID(),'gouwu')[0];?></div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="title text-muted">天数</div>
+                        <div class=""><?php echo get_post_meta(get_the_ID(),'tianshu')[0];?></div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="title text-muted">玩法</div>
+                        <div class=""><?php echo get_post_meta(get_the_ID(),'wanfa')[0];?></div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="title text-muted">交通</div>
+                        <div class=""><?php echo get_post_meta(get_the_ID(),'jiaotong')[0];?></div>
+                    </div>
+                    
+
+
+                    
+                </div>
+            </div>
+
         </div>
     </header>
 
@@ -30,7 +69,7 @@
         </div>
     </div>
     <?php endif;?>
-
+    
     <?php if (get_post_meta(get_the_ID(), 'xc')): ?>
     <div class="entry-xc">
         <?php
@@ -54,34 +93,48 @@
     <?php endif;?>
 
     <?php if (get_post_meta(get_the_ID(), 'baohan')): ?>
-    <div class="entry-fy box p-3 p-md-4 mt-3">
-        <div class="box-header mb-4 pb-2">
-            <h3 class="font-weight-bold">
-                费用说明
-            </h3>
+    <div class="entry-xuzhi box p-3 p-md-4 mt-3">
+        <div class="box-header mb-3 pb-2">
+            <h3 class="font-weight-bold">费用包含</h3>
         </div>
-        <div class="entry-fy-content box-content">
-            <div class="row">
-                <div class="col-12 mb-3">
-                    <h4 class="font-weight-bold mb-3">费用包含</h4>
-                    <div class="entry-fy-content-item">
-                        <?php
-                        $baohan = get_post_meta(get_the_ID(), 'baohan');
-                        $baohan = str_replace(PHP_EOL, '<br />', $baohan[0]);
-                        echo $baohan;
-                        ?>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <h4 class="font-weight-bold mb-3">费用不包含</h4>
-                    <div class="entry-fy-content-item">
-                        <?php
-                        $bubaohan = get_post_meta(get_the_ID(), 'bubaohan');
-                        $bubaohan = str_replace(PHP_EOL, '<br />', $bubaohan[0]);
-                        echo $bubaohan;
-                        ?>
-                    </div>
-                </div>
+        <div class="entry-xuzhi-content">
+            <?php
+            $xuzhi = get_post_meta(get_the_ID(), 'baohan', )[0];
+            $xuzhi = str_replace(PHP_EOL, '<br />', $xuzhi);
+            echo $xuzhi;
+            ?>
+        </div>
+    </div>
+    <?php endif;?>
+
+    <?php if (get_post_meta(get_the_ID(), 'bubaohan')): ?>
+    <div class="entry-xuzhi box p-3 p-md-4 mt-3">
+        <div class="box-header mb-3 pb-2">
+            <h3 class="font-weight-bold">费用不包含</h3>
+        </div>
+        <div class="entry-xuzhi-content">
+            <?php
+            $xuzhi = get_post_meta(get_the_ID(), 'bubaohan', )[0];
+            $xuzhi = str_replace(PHP_EOL, '<br />', $xuzhi);
+            echo $xuzhi;
+            ?>
+        </div>
+    </div>
+    <?php endif;?>
+
+    <?php if (get_post_meta(get_the_ID(), 'zifei')): ?>
+    <div class="entry-xuzhi box p-3 p-md-4 mt-3">
+        <div class="box-header mb-3 pb-2">
+            <h3 class="font-weight-bold">自费项目</h3>
+        </div>
+        <div class="entry-xuzhi-content">
+            <?php
+            $xuzhi = get_post_meta(get_the_ID(), 'zifei', )[0];
+            $xuzhi = str_replace(PHP_EOL, '<br />', $xuzhi);
+            echo $xuzhi;
+            ?>
+            <div class="text-muted small mt-3">
+                *所有自费项目自愿参加，如有强制消费，按消费金额1比10进行赔偿
             </div>
         </div>
     </div>
