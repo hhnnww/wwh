@@ -19,12 +19,12 @@
 
     <div class="container my-4">
         <div class="row">
-            <div class="col-12 col-lg-<?php if (in_category('线路')) {
+            <div class="col-12 px-2 col-lg-<?php if (in_category('线路')) {
                     echo '12';
                 } else {
                     echo '8';
                 } ?> box">
-                <div class="row">
+                <div class="row no-gutters">
                     <?php while (have_posts()): the_post(); ?>
                     <?php if (in_category('线路')): ?>
                     <?php get_template_part('archive-template/xianlu-archive'); ?>
@@ -33,7 +33,7 @@
                     <?php endif; ?>
                     <?php endwhile; ?>
 
-                    <div class="col-12">
+                    <div class="col-12 pl-1">
                         <div class="page-nav my-2 mb-4 font-weight-normal">
                             <?php the_posts_pagination(array(
                             'mid_size' => 2,

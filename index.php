@@ -82,33 +82,34 @@
 <!-- 产品模块 -->
 <?php $home_cp_list = get_option('ashuwp_wwh')['home_cp_model_1'];?>
 <div class="home-cp-box mt-3 mt-lg-5 home-cp-cp-box border-bottom border-light pb-3 pb-lg-5">
-    <div class="container">
+    <div class="container px-2">
         <!-- 标题 -->
-        <div class="row">
+        <div class="row pl-3">
             <div class="col px-1">
                 <h3 class="font-weight-bold mb-3">
                     <?php echo $home_cp_list['bt']; ?>
                 </h3>
             </div>
         </div>
-        <div class="row home-cp-content">
+        <div class="row home-cp-content no-gutters">
             <!-- 循环内 -->
             <?php
             $cp_list = explode(' ', $home_cp_list['id']);
             foreach ($cp_list as $c) {
-                echo '<div class="col-6 mb-3 mb-lg-4 col-md-6 col-lg-4 home-cp-item">';
+                echo '<div class="col-6 mb-3 mb-lg-4 col-lg-4 home-cp-item">';
                 $the_query = new WP_Query(array('p' => $c));
                 $the_query->the_post();
                 $img = get_post_meta(get_the_ID(), 'st')[0][0];
                 $img = wp_get_attachment_url($img);
                 echo '<a title="' . get_the_title() . '" target="_blank" href="' . get_the_permalink() . '">';
-                echo '<div class="rounded img mb-2 mb-lg-3">';
+                echo '<div class="rounded img mb-2">';
                 if (get_post_meta(get_the_ID(), 'zb')) {
                     echo '<div class="tuijian">' . get_post_meta(get_the_ID(), 'zb')[0][0] . '</div>';
                 }
                 echo '<img class="img-fluid" src="' . $img . '?w=800&h=450" />';
-                echo '<div class="tag">' . get_post_meta(get_the_ID(), 'tag')[0] . '</div>';
+                echo '<div class="tag">' . get_post_meta(get_the_ID(), 'tianshu')[0] . '</div>';
                 echo '</div>';
+                echo '<div class="small text-muted">'.get_post_meta(get_the_ID(),'mudidi')[0].'</div>';
                 echo '<div class="title font-weight-bold mb-1">' . get_the_title() . '</div>';
                 echo '<div class="jiage"><b class="mr-1">￥' . get_post_meta(get_the_ID(), 'price')[0] . '</b><span>起/人</span></div>';
                 wp_reset_query();
@@ -117,8 +118,8 @@
             }
             ?>
         </div>
-        <div class="row">
-            <div class="col px-0">
+        <div class="row pl-1">
+            <div class="col">
                 <h4 class="font-weight-bold"><a class="btn-wwh hvr-sweep-to-right" href="<?php echo $home_cp_list['link']; ?>">
                         <?php echo $home_cp_list['more']; ?></a></h4>
             </div>

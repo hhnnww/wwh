@@ -37,63 +37,6 @@ function modal_jiawei()
 </div>
 <?php }
 
-// 线路页幻灯片
-function xianlu_hdp()
-{
-    ?>
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators d-none d-lg-flex">
-        <?php
-            $st_list = get_post_meta(get_the_ID(), 'st')[0];
-            $count = count($st_list);
-            $x = 1;
-            while ($x <= $count) {
-                if ($x == 1) {
-                    $a = 'active';
-                } else {
-                    $a = '';
-                }
-                echo '<li data-target="#carouselExampleIndicators" data-slide-to="' . $x . '" class="' . $a . '"></li>';
-                $x++;
-            }
-        ?>
-    </ol>
-    <div class="carousel-inner">
-        <div class="carousel-tuijian">
-        <?php if (get_post_meta(get_the_ID(), 'zb')): ?>
-            <?php echo get_post_meta(get_the_ID(), 'zb')[0][0]; ?>
-        <?php else: ?>
-            限时特惠
-        </div>
-        <?php endif;?>
-        <?php
-
-    $count = 1;
-    foreach ($st_list as $i) {;?>
-        <?php if ($count == 1) {
-        $a = 'active';
-    } else {
-        $a = '';
-    }
-        $count++;
-        ?>
-        <div class="carousel-item <?php echo $a; ?>">
-            <img alt="<?php the_title();?>" src="<?php echo wp_get_attachment_url($i); ?>?w=850&h=450" />
-        </div>
-        <?php }
-    ?>
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
-<?php }
-
 function entry_meta()
 {?>
 <div class="entry-meta">

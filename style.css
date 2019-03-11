@@ -135,7 +135,7 @@ img {
 }
 
 
-/* -----------Ã¥â€¦Â¬Ã¥â€¦Â±Ã¦Â Â·Ã¥Â¼ÂÃ§Â»â€œÃ¦ÂÅ¸--------- */
+/* -----------ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¥ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¥ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â±ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â·ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¥ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¼ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â»ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¸--------- */
 
 .site-header {
     height: 60px;
@@ -265,7 +265,7 @@ img {
 }
 
 
-/* ----------site-headerÃ§Â»â€œÃ¦ÂÅ¸---------- */
+/* ----------site-headerÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â»ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¸---------- */
 
 .single,
 .page {
@@ -276,7 +276,7 @@ img {
     box-shadow: 0 0 5px #999;
 }
 
-.carousel-tuijian {
+.tuijian {
     width: 48px;
     height: 60px;
     background: url(./img/4.svg) no-repeat center center;
@@ -334,8 +334,6 @@ img {
 
 .entry-maidian li {
     list-style: none;
-    background: url(./img/5.svg) no-repeat left 4px;
-    padding-left: 25px;
     font-size: 13px;
 }
 
@@ -352,7 +350,7 @@ img {
 }
 
 .entry-xc .box-header h3 {
-    background: url(./img/9.svg) no-repeat left 3px;
+    background: url(./img/9.svg) no-repeat left 1px;
     padding-left: 30px;
 }
 
@@ -369,6 +367,10 @@ img {
     position: relative;
     background: url(./img/6.svg) no-repeat left 5px;
     padding-left: 30px;
+}
+
+.entry-xc-content strong{
+    display:block;
 }
 
 .entry-xc-can {
@@ -466,7 +468,6 @@ img {
 
     .entry-maidian li {
         font-size: 1rem;
-        background-position: left 5px;
     }
 
     .single .box-header h3 {
@@ -565,6 +566,15 @@ img {
 .archive .xianlu .tag {
     color: #6c6c6c;
     font-size: .8rem;
+}
+
+.archive .xianlu .tianshu{
+    z-index: 999;
+    right: 10px;
+    bottom: 10px;
+    background: rgba(0, 0, 0, .8);
+    color: #fff;
+    padding: 2px 8px;
 }
 
 .archive .xianlu .fuwu span {

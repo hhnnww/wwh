@@ -1,7 +1,12 @@
 <article id="post-<?php the_ID();?>" class="xianlu">
 
     <header class="entry-header box">
-        <?php xianlu_hdp();?>
+        <div class="img">
+            <div class="tuijian">
+                限时特惠
+            </div>
+            <img src="<?php echo get_st();?>?w=850&h=400" />    
+        </div>
 
         <div class="entry-header-content p-3 p-md-4">
             <h1 class="entry-title font-weight-bold">
@@ -99,7 +104,7 @@
         </div>
         <div class="entry-xuzhi-content">
             <?php
-            $xuzhi = get_post_meta(get_the_ID(), 'baohan', )[0];
+            $xuzhi = get_post_meta(get_the_ID(), 'baohan')[0];
             $xuzhi = str_replace(PHP_EOL, '<br />', $xuzhi);
             echo $xuzhi;
             ?>
@@ -114,7 +119,7 @@
         </div>
         <div class="entry-xuzhi-content">
             <?php
-            $xuzhi = get_post_meta(get_the_ID(), 'bubaohan', )[0];
+            $xuzhi = get_post_meta(get_the_ID(), 'bubaohan')[0];
             $xuzhi = str_replace(PHP_EOL, '<br />', $xuzhi);
             echo $xuzhi;
             ?>
@@ -129,7 +134,7 @@
         </div>
         <div class="entry-xuzhi-content">
             <?php
-            $xuzhi = get_post_meta(get_the_ID(), 'zifei', )[0];
+            $xuzhi = get_post_meta(get_the_ID(), 'zifei')[0];
             $xuzhi = str_replace(PHP_EOL, '<br />', $xuzhi);
             echo $xuzhi;
             ?>
@@ -147,7 +152,7 @@
         </div>
         <div class="entry-xuzhi-content">
             <?php
-            $xuzhi = get_post_meta(get_the_ID(), 'xuzhi', )[0];
+            $xuzhi = get_post_meta(get_the_ID(), 'xuzhi')[0];
             $xuzhi = str_replace(PHP_EOL, '<br />', $xuzhi);
             echo $xuzhi;
             ?>

@@ -152,3 +152,13 @@ function dingdan()
 {
     include get_template_directory() . '/dingdan.php';
 }
+
+// 返回文章字段
+function get_field($meta){
+    return get_post_meta(get_the_ID(),$meta);
+}
+
+// 返回首图
+function get_st(){
+    return wp_get_attachment_url(get_post_meta(get_the_ID(),'st')[0][0]);    
+}

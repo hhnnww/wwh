@@ -13,6 +13,8 @@ from wordpress_xmlrpc.methods import media, posts
 import time
 import re
 
+import PyMysql
+
 def htmldown(url):
     brower = webdriver.Chrome()
     brower.set_window_size(300,800)
@@ -53,7 +55,7 @@ def fabu(url):
 
     # 价格
     price = html.find('.price-wrapper .price-area span.price-str span')[0].text
-    price = re.sub('.*?-','',price)
+    # price = re.sub('.*?-','',price)
     post.custom_fields.append({
         'key':'price',
         'value':price
@@ -113,8 +115,13 @@ def fabu(url):
     })
 
     # 交通
-    jiaotong = html.find('.mod-tabular-list .content')[0].find('.item .info')[5].text
-    jiaotong = re.sub('、','，',jiaotong)
+    try:
+        jiaotong = html.find('.mod-tabular-list .content')[0].find('.item .info')[5].text
+    except IndexError:
+        jiaotong = ''
+    else:
+        jiaotong = html.find('.mod-tabular-list .content')[0].find('.item .info')[5].text
+        jiaotong = re.sub('、','，',jiaotong)
     post.custom_fields.append({
         'key':'jiaotong',
         'value':jiaotong
@@ -128,7 +135,7 @@ def fabu(url):
 
         title = fz_xc.find('.traveldetail-content-item')[0].find('.mod-travellistdetailed-item')[0].text
         title = re.sub(r'第.*?天:','',title)
-                
+
         can = fz_xc.find('.traveldetail-content-item')[1].find('.title')[0].text
 
         try:
@@ -140,7 +147,6 @@ def fabu(url):
 
         xc_one = {
             'title':title,
-            # 'content':content,
             'can':can,
             'zhu':zhu
         }
@@ -184,49 +190,13 @@ def fabu(url):
         'key':'xuzhi',
         'value':xuzhi
     })
-
-    # 图文
-    html = htmldown(url)
-    try:
-        html.find('.description-pic-txt-wrapper .descr-txt-content img')
-    except IndexError:
-        pass
-    else:
-        content = html.find('.description-pic-txt-wrapper .descr-txt-content img')
-        content_html = ''
-        for i in content:
-            img = i.attrs['data-ks-lazyload']
-            img = HTMLSession().get(img).content
-            data = {'name': 'xinjiangcn_pic.jpg', 'type': 'image/jpeg'}
-            data['bits'] = xmlrpc_client.Binary(img)
-            response = wp.call(media.UploadFile(data))
-            img_html = '<img src="'+response['url']+'"/>'
-            content_html = content_html + img_html
-        post.content = content_html
-
-    # 首图
-    # st_list = html.find('ul.item-gallery-bottom li')
-    # st = []
-    # for i in st_list:
-    #     img = i.find('img')[0].attrs['src']
-    #     img = 'https:'+img
-    #     img = re.sub(r'\.jpg(.*?)$','.jpg',img)
-    #     img = HTMLSession().get(img).content
-    #     data = {'name': 'xinjiangcn_pic.jpg', 'type': 'image/jpeg'}
-    #     data['bits'] = xmlrpc_client.Binary(img)
-    #     response = wp.call(media.UploadFile(data))
-    #     st.append(response['id'])
-    # post.custom_fields.append({
-    #     'key':'st',
-    #     'value':st
-    # })
     
     post.id = wp.call(posts.NewPost(post))
     print(str(base_url)+'?p='+str(post.id))
 
 
+
 url = input('输入页面地址：')
-# url = 'https://traveldetail.fliggy.com/item.htm?spm=a1z10.1-b.w4004-4891720451.4.3c812665EgsJVH&id=534546638617'
 id = re.findall(r'id=([\d]+)',url)[0]
 url = 'https://h5.m.taobao.com/trip/travel-detail/index/index.html?id='+str(id)
 fabu(url)

@@ -24,7 +24,7 @@
             
                 <div class="yuding p-4 bg-white" id="#yuding">
 
-                    <?php if(get_post_meta(get_the_ID(),'price')){ ?>
+                    <?php if(in_category('线路') && is_single()){ ?>
                     <div class="jiage mb-3 border-bottom border-light pb-2">
                         <b class="mr-2"><?php echo get_post_meta(get_the_ID(),'price')[0];?></b><span>起/人</span>
                     </div>
