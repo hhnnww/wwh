@@ -84,8 +84,8 @@
 <div class="home-cp-box mt-3 mt-lg-5 home-cp-cp-box border-bottom border-light pb-3 pb-lg-5">
     <div class="container px-2">
         <!-- 标题 -->
-        <div class="row pl-3">
-            <div class="col px-1">
+        <div class="row mx-0">
+            <div class="col px-1 mx-0">
                 <h3 class="font-weight-bold mb-3">
                     <?php echo $home_cp_list['bt']; ?>
                 </h3>
@@ -96,17 +96,17 @@
             <?php
             $cp_list = explode(' ', $home_cp_list['id']);
             foreach ($cp_list as $c) {
-                echo '<div class="col-6 mb-3 mb-lg-4 col-lg-4 home-cp-item">';
+                echo '<div class="col-12 col-mb-6 mb-3 mb-lg-4 col-lg-4 home-cp-item">';
                 $the_query = new WP_Query(array('p' => $c));
                 $the_query->the_post();
                 $img = get_post_meta(get_the_ID(), 'st')[0][0];
                 $img = wp_get_attachment_url($img);
                 echo '<a title="' . get_the_title() . '" target="_blank" href="' . get_the_permalink() . '">';
-                echo '<div class="rounded img mb-2">';
+                echo '<div class="img mb-2">';
                 if (get_post_meta(get_the_ID(), 'zb')) {
                     echo '<div class="tuijian">' . get_post_meta(get_the_ID(), 'zb')[0][0] . '</div>';
                 }
-                echo '<img class="img-fluid" src="' . $img . '?w=800&h=450" />';
+                echo '<img alt="'.get_the_title().'" class="img-fluid" src="' . $img . '?w=800&h=450" />';
                 echo '<div class="tag">' . get_post_meta(get_the_ID(), 'tianshu')[0] . '</div>';
                 echo '</div>';
                 echo '<div class="small text-muted">'.get_post_meta(get_the_ID(),'mudidi')[0].'</div>';
@@ -144,7 +144,7 @@
                 <div class="jumbotron jumbotron-fluid pl-5" style="background:url(<?php echo $home_dt_model['img']; ?>?w=1500&h=600) no-repeat center center;background-size:cover;">
                     <h1 class="display-3 font-weight-bold"><?php echo $home_dt_model['bt'];?></h1>
                     <p class="lead font-weight-bold"><?php echo $home_dt_model['text'];?></p>
-                    <a href="<?php echo $home_dt_model['link'];?>" class="btn-wwh hvr-sweep-to-right" >开始定制</a>
+                    <a href="<?php echo $home_dt_model['link'];?>" class="btn-wwh hvr-sweep-to-right" data-toggle="modal" data-target="#jiawei">开始定制</a>
                 </div>
             </div>
         </div>
@@ -197,7 +197,7 @@ $gl_id = get_option('ashuwp_wwh')['home_gl_id'];
                 <div class="col-6 col-lg-3 mb-3 home-model-item">
                     <a title="<?php the_title();?>" target="_blank" href="<?php the_permalink();?>">
                         <div class="img rounded position-relative mb-2">
-                            <img src="<?php echo st();?>?w=800&h=480" />
+                            <img alt="<?php echo get_the_title();?>" src="<?php echo st();?>?w=800&h=480" />
                             <div class="view position-absolute rounded font-weight-bold"><?php echo post_views('',' 浏览');?></div>
                         </div>
                         <div class="meta small text-muted font-weight-bold">
@@ -213,7 +213,7 @@ $gl_id = get_option('ashuwp_wwh')['home_gl_id'];
         
         <div class="row more home-model-foter">
             <div class="col px-1">
-                <a href="<?php echo get_category_link($yj_id);?>" class="btn-wwh hvr-sweep-to-right">查看更多游记</a>
+                <a href="<?php echo get_category_link($yj_id);?>" title="查看更多游记" class="btn-wwh hvr-sweep-to-right">查看更多游记</a>
             </div>
         </div>
 
@@ -238,7 +238,7 @@ $gl_id = get_option('ashuwp_wwh')['home_gl_id'];
                 <div class="col-6 col-lg-3 mb-3 home-model-item">
                     <a title="<?php the_title();?>" target="_blank" href="<?php the_permalink();?>">
                         <div class="img rounded position-relative mb-2">
-                            <img src="<?php echo st();?>?w=800&h=480" />
+                            <img alt="<?php the_title();?>" src="<?php echo st();?>?w=800&h=480" />
                             <div class="view position-absolute rounded font-weight-bold"><?php echo post_views('',' 浏览');?></div>
                         </div>
                         <div class="meta small text-muted font-weight-bold">
@@ -254,7 +254,7 @@ $gl_id = get_option('ashuwp_wwh')['home_gl_id'];
         
         <div class="row more home-model-foter">
             <div class="col px-1">
-                <a href="<?php echo get_category_link($yj_id);?>" class="btn-wwh hvr-sweep-to-right">查看更多游记</a>
+                <a href="<?php echo get_category_link($gl_id);?>" class="btn-wwh hvr-sweep-to-right" title="查看更多攻略">查看更多攻略</a>
             </div>
         </div>
 
@@ -280,15 +280,15 @@ $gl_id = get_option('ashuwp_wwh')['home_gl_id'];
                     <div class="home-model-item row pb-2 mb-2 mb-lg-3 pb-lg-3 no-gutters border-bottom border-light">
 
                         <div class="img rounded col-3 d-none d-md-block">
-                            <a target="_blank"  href="<?php the_permalink();?>">
-                                <img src="<?php echo st();?>?w=500&h=350" />
+                            <a target="_blank" title="<?php the_title();?>" href="<?php the_permalink();?>">
+                                <img alt="<?php the_title();?>" src="<?php echo st();?>?w=500&h=350" />
                             </a>
                         </div>
 
                         <div class="col-12 pl-0 pl-md-3 col-md-9">
                             <div class="date small font-weight-normal "><?php echo get_the_date();?></div>
                             <div class="title font-weight-bold mb-0 mb-xl-2">
-                                <a target="_blank"  href="<?php the_permalink();?>">
+                                <a target="_blank" title="<?php the_title();?>" href="<?php the_permalink();?>">
                                     <?php the_title();?>
                                 </a>
                             </div>

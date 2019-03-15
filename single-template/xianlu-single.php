@@ -5,7 +5,7 @@
             <div class="tuijian">
                 限时特惠
             </div>
-            <img src="<?php echo get_st();?>?w=850&h=400" />    
+            <img src="<?php echo get_st();?>?w=850&h=400" width="850" height="400" class="img-fluid" />    
         </div>
 
         <div class="entry-header-content p-3 p-md-4">

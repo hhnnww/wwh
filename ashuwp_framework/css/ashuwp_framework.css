@@ -1,4 +1,4 @@
-/*！
+/*ÃƒÂ¯Ã‚Â¼Ã‚Â
 *Author: Ashuwp
 *Author url: http://www.ashuwp.com
 *Version: 6.0
@@ -34,7 +34,7 @@ html {
 .ashuwp_field {
   width:100%;
   position:relative;
-  margin-top:40px;
+  margin-top:30px;
   min-height:20px;
   float:left;
 }
@@ -43,23 +43,21 @@ html {
   display:block;
   font-size:14px;
   font-weight:700;
-  width:200px;
   float:left;
 }
 
 .ashuwp_field .ashuwp_field_area {
-  padding-left:200px;
+  padding-left:150px;
 }
 .ashuwp_field .ashuwp_field_area .field_group {
-  background:#ededed;
-  padding:10px;
-  border-radius:5px;
+
 }
 .ashuwp_field .ashuwp_field_area .multiple_item {
-  margin:0 0 10px 0;
+  margin:0 0 50px 0;
 }
 .ashuwp_field.ashuwp_group_field .field_group .ashuwp_field .ashuwp_field_label {
   font-size:12px;
+  margin-bottom:5px;
 }
 .ashuwp_field.ashuwp_group_field .ashuwp_field_area .ashuwp_field_area {
   width:100%;
@@ -69,6 +67,7 @@ html {
 .ashuwp_field.ashuwp_group_field .field_group .ashuwp_field {
   float:left;
   margin-top:0px;
+  margin-bottom:10px;
 }
 
 .ashuwp_field .ashuwp_field_area .button-primary {
@@ -104,7 +103,7 @@ html {
 .ashuwp_field input.ashuwp_field_input,
 .ashuwp_field textarea.ashuwp_field_textarea {
   width:100%;
-  max-width:500px;
+  max-width:80%;
 }
 .multiple_wrap {
   width:100%;
@@ -114,7 +113,7 @@ html {
   width:100%;
   padding-right:70px;
   position:relative;
-  max-width:500px;
+  max-width:80%;
 }
 .multiple_item.multiple_item_has_gallery {
   max-width:100%;
@@ -123,15 +122,7 @@ html {
   max-width:100%;
 }
 .multiple_item a.delete_item {
-  position:absolute;
-  right:0;
-  bottom:20px;
-  display:block;
-  width:60px;
-  text-align:center;
-  font-size:14px;
-  line-height:1.4em;
-  padding:3px 0;
+  
 }
 .ashuwp_field .ashuwp_upload_input {
   width:100%;
@@ -149,7 +140,7 @@ html {
   right:0;
 }
 .ashuwp_field textarea.ashuwp_field_textarea {
-  min-height:60px;
+  min-height:200px;
 }
 .ashuwp_field input.autowidth {
   width:auto;
@@ -169,9 +160,7 @@ html {
 }
 /* gallery */
 .gallery_container {
-  background:#dddddd;
-  padding:10px;
-  border-radius:5px;
+  
 }
 .multiple_item .gallery_container {
   margin-bottom:10px;
@@ -186,16 +175,13 @@ html {
 .ashuwp_field .gallery_view .wc-metabox-sortable-placeholder,
 .ashuwp_field .gallery_view .image {
   display:block;
-  width:20%;
   float:left;
-  padding:10px;
-  margin:0;
+  margin-bottom:20px;
+  padding-right:10px;
   text-align:center;
   position:relative;
 }
-.ashuwp_field .gallery_view .wc-metabox-sortable-placeholder {
-  border:1px dashed #eeeeee;
-}
+
 .taxonomy_add_page .ashuwp_field .gallery_view .image {
   width:50%;
 }
@@ -207,7 +193,6 @@ html {
   max-height:150px;
   width:auto;
   height:auto;
-  border:1px solid #ccc;
 }
 .taxonomy_add_page {
   margin-bottom:20px;
@@ -223,9 +208,9 @@ html {
 /* tabs */
 ul.nav-tabs {
   list-style:none;
-  border-bottom: 1px solid #ddd;
   margin:0;
   padding:0;
+  border-bottom:1px solid #eee;
 }
 ul.nav-tabs:before,
 ul.nav-tabs:after {
@@ -245,36 +230,33 @@ ul.nav-tabs li a {
   cursor:pointer;
   position:relative;
   display:block;
-  padding:10px 30px;
-  margin-right:2px;
-  border-radius:4px 4px 0 0;
+  padding:20px 0;
+  padding-right:40px;
   text-decoration:none;
   font-size:14px;
   outline:none;
+  color:#999;
 }
 ul.nav-tabs li a:focus {
   box-shadow:none;
 }
 ul.nav-tabs li a:hover {
-  background:#eee;
+  color:#484848;
+  font-weight:bold;
 }
 ul.nav-tabs li.ui-tabs-active a,
 ul.nav-tabs li.ui-tabs-active a:focus,
 ul.nav-tabs li.ui-tabs-active a:hover {
-  color:#000;
-  background:#fff;
-  border:1px solid #ddd;
-  border-bottom-color:transparent;
+  color:#484848;
   outline:none;
+  font-weight:bold;
 }
 .field_groups {
   overflow:hidden;
 }
 .field_groups.tab-pane {
   background:#fff;
-  border: 1px solid #ddd;
-  border-top: none;
-  padding:0 20px 20px 20px;
+  padding-bottom:20px;
 }
 @media screen and (max-width: 782px){
   .ashuwp_field .ashuwp_field_label {

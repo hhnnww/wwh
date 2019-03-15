@@ -1,4 +1,6 @@
 from selenium import webdriver
+from selenium.webdriver import Chrome
+from selenium.webdriver import ChromeOptions
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
@@ -13,20 +15,20 @@ from wordpress_xmlrpc.methods import media, posts
 import time
 import re
 
-import PyMysql
-
 def htmldown(url):
-    brower = webdriver.Chrome()
-    brower.set_window_size(300,800)
+    option = ChromeOptions()
+    option.add_experimental_option('excludeSwitches', ['enable-automation'])
+    brower = webdriver.Chrome(options=option)    
+
     brower.get(url)
 
     js = "document.documentElement.scrollTop=10000"
     brower.execute_script(js)
-    time.sleep(2)
+    time.sleep(20)
 
     js = "document.documentElement.scrollTop=10000"
     brower.execute_script(js)
-    time.sleep(2)
+    time.sleep(5)
   
     html = brower.page_source
     html = HTML(html=html)
@@ -55,7 +57,6 @@ def fabu(url):
 
     # 价格
     price = html.find('.price-wrapper .price-area span.price-str span')[0].text
-    # price = re.sub('.*?-','',price)
     post.custom_fields.append({
         'key':'price',
         'value':price
@@ -190,11 +191,9 @@ def fabu(url):
         'key':'xuzhi',
         'value':xuzhi
     })
-    
+    print(post.title)
     post.id = wp.call(posts.NewPost(post))
     print(str(base_url)+'?p='+str(post.id))
-
-
 
 url = input('输入页面地址：')
 id = re.findall(r'id=([\d]+)',url)[0]

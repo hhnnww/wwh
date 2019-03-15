@@ -6,6 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?php wp_head();?>
+    <?php if(is_home()):?>
+    <meta name='keyword' content="<?php echo get_option('ashuwp_wwh')['seo']['key'];?>" />
+    <meta name='description' content="<?php echo get_option('ashuwp_wwh')['seo']['desc'];?>" />
+    <?php elseif(is_single()):?>
+    <meta name='keyword' content="<?php 
+    foreach(get_the_tags() as $t){
+        echo $t->name;
+        echo ',';
+        }?>" />
+    <meta name='description' content="<?php echo get_field('desc')[0];?>"/>
+    <?php endif;?>
 </head>
 
 <body <?php body_class();?>>

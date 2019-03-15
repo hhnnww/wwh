@@ -30,6 +30,12 @@ $w[] = array(
 );
 
 $w[] = array(
+    'name'=>'SEO描叙',
+    'id'=>'desc',
+    'type'=>'textarea'
+);
+
+$w[] = array(
     'type' => 'close',
 );
 // 首图选项卡
@@ -176,6 +182,7 @@ $w[] = array(
 $w[] = array(
     'id' => 'close',
 );
+
 $new_box = new ashuwp_postmeta_feild($w, $meta_conf);
 
 /* ----------文章自定义字段结束---------- */
@@ -352,6 +359,34 @@ $ashu_options[] = array(
 
 $ashu_options[] = array(
     'type' => 'close',
+);
+
+$ashu_options[] = array(
+    'name' =>'SEO设置',
+    'id'=>'seo_open',
+    'type'=>'open'
+);
+
+$ashu_options[] = array(
+    'name'=>'首页SEO设置',
+    'id'=>'seo',
+    'subtype'=> array(
+        array(
+            'name'=>'首页关键词Keyword',
+            'id'=>'key',
+            'type'=>'text'
+        ),
+        array(
+            'name'=>'首页描述',
+            'id'=>'desc',
+            'type'=>'text'
+        )
+    ),
+    'type'=>'group'
+);
+
+$ashu_options[] = array(
+    'type'=>'close'
 );
 
 $option_page = new ashuwp_options_feild($ashu_options, $page_info);

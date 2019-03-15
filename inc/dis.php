@@ -112,16 +112,18 @@ function remove_my_post_metaboxes() {
 	remove_meta_box( 'formatdiv','post','normal' ); // 文章格式模块
 	//remove_meta_box( 'submitdiv','post','normal' ); // 发布模块
 	//remove_meta_box( 'tagsdiv-post_tag','post','normal' ); // 标签模块
-	}
-	add_action('admin_menu','remove_my_post_metaboxes');
+}
+add_action('admin_menu','remove_my_post_metaboxes');
 	 
-	//移除特色图像模块
-	add_action('do_meta_boxes', 'remove_thumbnail_box');
-	function remove_thumbnail_box() {
-		remove_meta_box( 'postimagediv','post','side' );
-	}
+//移除特色图像模块
+add_action('do_meta_boxes', 'remove_thumbnail_box');
+function remove_thumbnail_box() {
+	remove_meta_box( 'postimagediv','post','side' );
+}
 
-	function disable_srcset( $sources ) {
-		return false;
-		}
-		add_filter( 'wp_calculate_image_srcset', 'disable_srcset' );
+function disable_srcset( $sources ) {
+	return false;
+}
+add_filter( 'wp_calculate_image_srcset', 'disable_srcset' );
+
+remove_action('wp_head','wp_shortlink_wp_head',10,0);

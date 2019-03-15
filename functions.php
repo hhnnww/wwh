@@ -4,6 +4,7 @@ require get_template_directory() . '/ashuwp_framework/ashuwp_framework_core.php'
 require get_template_directory() . '/ashuwp_framework/config.php';
 require get_template_directory() . '/inc/dis.php';
 require get_template_directory() . '/inc/functions-tag.php';
+require get_template_directory() . '/inc/wp_baidu_submit.php';
 
 function wwh_setup()
 {

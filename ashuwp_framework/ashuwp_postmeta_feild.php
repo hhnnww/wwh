@@ -86,7 +86,7 @@ class ashuwp_postmeta_feild extends ashuwp_framework_core {
   }
   
   public function save_postdata() {
-    if( isset( $_POST['post_type'] ) && in_array($_POST['post_type'],$this->meta_conf['page'] ) && (isset($_POST['save']) || isset($_POST['publish']) ) ){
+    if( isset( $_POST['post_type'] ) && in_array($_POST['post_type'],$this->meta_conf['page'] ) && (isset($_POST['action']) ) ){
 	  
       $post_id = $_POST['post_ID'];
       if(!$post_id)

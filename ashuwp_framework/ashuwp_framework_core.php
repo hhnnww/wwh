@@ -868,7 +868,10 @@ class ashuwp_framework_core {
         if( !empty($values['textarea_name']) ){
           $settings['textarea_name'] = $values['textarea_name'];
         }
-        
+
+        // 自己添加的，关闭了媒体上传
+        $settings['media_buttons'] = false;
+
         wp_editor( $values['std'], $values['id'],$settings );
     
     $this->after_tags();
@@ -1080,7 +1083,7 @@ class ashuwp_framework_core {
         }
         echo '</div>';
         
-        echo '<a href="#" class="delete_item">Delete</a></div>';
+        echo '<a href="#" class="components-button editor-post-publish-button is-button is-default is-primary is-large">删除</a></div>';
       }
       
       echo '<a href="#" class="add_item button-secondary" data_name="ashuwp_framework_html_'.$values['id'].'">Add</a></div>';
