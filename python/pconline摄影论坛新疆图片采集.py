@@ -1,17 +1,6 @@
 from requests_html import HTMLSession
-
-from wordpress_xmlrpc import Client, WordPressPost
-from wordpress_xmlrpc.methods.posts import GetPosts, NewPost
-from wordpress_xmlrpc.methods.users import GetUserInfo
-from wordpress_xmlrpc.methods import posts
-from wordpress_xmlrpc.methods import taxonomies
-from wordpress_xmlrpc import WordPressTerm
-from wordpress_xmlrpc.compat import xmlrpc_client
-from wordpress_xmlrpc.methods import media, posts
-
 import re
-import pymysql
-import hashlib
+from tomorrow3 import threads
 
 def liebiao_list():
     liebiao_list = []
@@ -28,10 +17,29 @@ def single_list(url):
     sing_url = html.find('ul.resultList li.item .con a.pic-url')
     for i in sing_url:
         url = 'https:'+ str(i.attrs['href'])
-        url = re.sub(r'\/(\d+)\.html','/list_{1}.html',url)
+        url = re.sub(r'\/(\d+)\.html',r'/list_\g<1>.html',url)
         single_list.append(url)
     return single_list
+
+@threads(5)
+def save_img(url):
+    html = HTMLSession().get(url).html
+    img_list = html.find('.picMain .picture .picFrame .pic img')
     
-for i in single_list('https://dp.pconline.com.cn/public/tools/search.jsp?keyword=%D0%C2%BD%AE&time=1095&type=photoTitle&pageNo=1'):
-    print(i)
-    
+    for i in img_list:
+        img_url = 'https:'+str(i.attrs['src'])
+        img_url = re.sub('_mthumb','',img_url)
+        print(img_url)
+
+        img_name = re.findall(r'\/(\d+_\d+)\.jpg',img_url)[0]
+        print(img_name)
+
+        bit = HTMLSession().get(img_url).content
+
+        f = open('D:\\新疆素材\\pconline\\'+str(img_name)+'.jpg','wb')
+        f.write(bit)
+        f.close
+
+for i in liebiao_list():
+    for i in single_list(i):
+        save_img(i)

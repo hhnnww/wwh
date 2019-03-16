@@ -41,4 +41,4 @@ def run():
         f.close
         x = x+1
 
-# run()
+run()
