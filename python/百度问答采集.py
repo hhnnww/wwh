@@ -6,13 +6,13 @@ from wordpress_xmlrpc.methods import media, posts
 from urllib.parse import quote
 from tomorrow3 import threads
 
-base_url = 'http://www.xinjiangcn.com/'
+base_url = 'https://www.tulelx.com/'
 wp = Client(str(base_url)+'xmlrpc.php', 'admin', '111')
 post = WordPressPost()
 post.post_status = 'publish'
 
 post.terms_names = {
-    'category': ['新疆游记']
+    'category': ['问答']
 }
 
 
@@ -64,7 +64,7 @@ def fabu(url):
     print(str(base_url)+'?p='+str(post.id))
 
 def start():
-    keywords = ['新疆旅游']
+    keywords = ['旅游']
     keyword_list = []
     for keyword in keywords:
         keyword = keyword.encode('GBK', 'replace')  # 转换为GBK

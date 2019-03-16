@@ -1,4 +1,4 @@
-/*ÃƒÂ¯Ã‚Â¼Ã‚Â
+/*ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¼Ãƒâ€šÃ‚Â
 *Author: Ashuwp
 *Author url: http://www.ashuwp.com
 *Version: 6.0
@@ -49,9 +49,7 @@ html {
 .ashuwp_field .ashuwp_field_area {
   padding-left:150px;
 }
-.ashuwp_field .ashuwp_field_area .field_group {
 
-}
 .ashuwp_field .ashuwp_field_area .multiple_item {
   margin:0 0 50px 0;
 }
@@ -121,9 +119,6 @@ html {
 .multiple_item.multiple_gallery_item {
   max-width:100%;
 }
-.multiple_item a.delete_item {
-  
-}
 .ashuwp_field .ashuwp_upload_input {
   width:100%;
   max-width:500px;
@@ -159,9 +154,6 @@ html {
   height:16px;
 }
 /* gallery */
-.gallery_container {
-  
-}
 .multiple_item .gallery_container {
   margin-bottom:10px;
 }
@@ -258,6 +250,9 @@ ul.nav-tabs li.ui-tabs-active a:hover {
   background:#fff;
   padding-bottom:20px;
 }
+.toplevel_page_wwh-option .field_groups.tab-pane {
+  background:none;
+}
 @media screen and (max-width: 782px){
   .ashuwp_field .ashuwp_field_label {
     width:100%;
@@ -305,4 +300,9 @@ ul.nav-tabs li.ui-tabs-active a:hover {
 
 .ashuwp_file_preview img{
   max-width: 200px;
+}
+
+/* wwh */
+#cp_xx{
+  border: 1px solid #eee;
 }

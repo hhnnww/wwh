@@ -25,32 +25,32 @@
             <div class="xianlu-shuxing mt-3 border-top border-bottom border-light py-3 small">
                 <div class="row">
 
-                    <div class="col-4 mb-3">
+                    <div class="col-12 col-lg-4 mb-3">
                         <div class="title text-muted">出发地</div>
                         <div class=""><?php echo get_post_meta(get_the_ID(),'chufadi')[0];?></div>
                     </div>
 
-                    <div class="col-4 mb-3">
+                    <div class="col-12 col-lg-4 mb-3">
                         <div class="title text-muted">目的地</div>
                         <div class=""><?php echo get_post_meta(get_the_ID(),'mudidi')[0];?></div>
                     </div>
 
-                    <div class="col-4 mb-3">
+                    <div class="col-12 col-lg-4 mb-3">
                         <div class="title text-muted">购物</div>
                         <div class=""><?php echo get_post_meta(get_the_ID(),'gouwu')[0];?></div>
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-12 col-lg-4 mb-3 mb-lg-0">
                         <div class="title text-muted">天数</div>
                         <div class=""><?php echo get_post_meta(get_the_ID(),'tianshu')[0];?></div>
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-12 col-lg-4 mb-3 mb-lg-0">
                         <div class="title text-muted">玩法</div>
                         <div class=""><?php echo get_post_meta(get_the_ID(),'wanfa')[0];?></div>
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-12 col-lg-4">
                         <div class="title text-muted">交通</div>
                         <div class=""><?php echo get_post_meta(get_the_ID(),'jiaotong')[0];?></div>
                     </div>

@@ -1,3 +1,4 @@
+<?php return;?>
 <?php get_header();?>
 
 <?php 
@@ -82,7 +83,7 @@
 <!-- 产品模块 -->
 <?php $home_cp_list = get_option('ashuwp_wwh')['home_cp_model_1'];?>
 <div class="home-cp-box mt-3 mt-lg-5 home-cp-cp-box border-bottom border-light pb-3 pb-lg-5">
-    <div class="container px-2">
+    <div class="container">
         <!-- 标题 -->
         <div class="row mx-0">
             <div class="col px-1 mx-0">
@@ -141,7 +142,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <div class="jumbotron jumbotron-fluid pl-5" style="background:url(<?php echo $home_dt_model['img']; ?>?w=1500&h=600) no-repeat center center;background-size:cover;">
+                <div class="jumbotron jumbotron-fluid" style="background:url(<?php echo $home_dt_model['img']; ?>?w=1500&h=600) no-repeat center center;background-size:cover;">
                     <h1 class="display-3 font-weight-bold"><?php echo $home_dt_model['bt'];?></h1>
                     <p class="lead font-weight-bold"><?php echo $home_dt_model['text'];?></p>
                     <a href="<?php echo $home_dt_model['link'];?>" class="btn-wwh hvr-sweep-to-right" data-toggle="modal" data-target="#jiawei">开始定制</a>
@@ -197,7 +198,7 @@ $gl_id = get_option('ashuwp_wwh')['home_gl_id'];
                 <div class="col-6 col-lg-3 mb-3 home-model-item">
                     <a title="<?php the_title();?>" target="_blank" href="<?php the_permalink();?>">
                         <div class="img rounded position-relative mb-2">
-                            <img alt="<?php echo get_the_title();?>" src="<?php echo st();?>?w=800&h=480" />
+                            <img alt="<?php echo get_the_title();?>" src="<?php echo get_st();?>?w=800&h=480" />
                             <div class="view position-absolute rounded font-weight-bold"><?php echo post_views('',' 浏览');?></div>
                         </div>
                         <div class="meta small text-muted font-weight-bold">
@@ -238,7 +239,7 @@ $gl_id = get_option('ashuwp_wwh')['home_gl_id'];
                 <div class="col-6 col-lg-3 mb-3 home-model-item">
                     <a title="<?php the_title();?>" target="_blank" href="<?php the_permalink();?>">
                         <div class="img rounded position-relative mb-2">
-                            <img alt="<?php the_title();?>" src="<?php echo st();?>?w=800&h=480" />
+                            <img alt="<?php the_title();?>" src="<?php echo get_st();?>?w=800&h=480" />
                             <div class="view position-absolute rounded font-weight-bold"><?php echo post_views('',' 浏览');?></div>
                         </div>
                         <div class="meta small text-muted font-weight-bold">
@@ -281,7 +282,7 @@ $gl_id = get_option('ashuwp_wwh')['home_gl_id'];
 
                         <div class="img rounded col-3 d-none d-md-block">
                             <a target="_blank" title="<?php the_title();?>" href="<?php the_permalink();?>">
-                                <img alt="<?php the_title();?>" src="<?php echo st();?>?w=500&h=350" />
+                                <img alt="<?php the_title();?>" src="<?php echo get_st();?>?w=500&h=350" />
                             </a>
                         </div>
 
