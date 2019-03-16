@@ -1,4 +1,4 @@
-<?php return;?>
+<?php //return;?>
 <?php get_header();?>
 
 <?php 

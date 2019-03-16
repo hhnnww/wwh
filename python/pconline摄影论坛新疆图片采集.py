@@ -5,7 +5,7 @@ from tomorrow3 import threads
 def liebiao_list():
     liebiao_list = []
     pagenumber = 1
-    while(pagenumber<=240):
+    while(pagenumber<=100):
         url = 'https://dp.pconline.com.cn/public/tools/search.jsp?keyword=%D0%C2%BD%AE&time=1095&type=photoTitle&pageNo='+str(pagenumber)
         liebiao_list.append(url)
         pagenumber=pagenumber+1
