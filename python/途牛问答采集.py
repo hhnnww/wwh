@@ -16,7 +16,7 @@ import hashlib
 def liebiao_list():
     liebiao_list = []
     pagenumber = 1
-    while(pagenumber<100):
+    while(pagenumber<10):
         url = 'https://www.tuniu.com/papi/wenda/index/getHomeQaFromEs?d={"pageSize":20,"pageNumber":'+str(pagenumber)+',"cityCode":3100,"tags":[],"timestamp":1552707708708}&c={"ct":100}&_=1552707847245'
         liebiao_list.append(url)
         pagenumber=pagenumber+1
@@ -32,33 +32,6 @@ def single_list(url):
         single_url_list.append(url)
     return single_url_list
 
-def creat_mysql():
-    db = pymysql.connect(
-        host = "127.0.0.1",
-        port = 3306,
-        user = 'root',
-        passwd = '',
-        db = 'xinjiangcn',
-        charset = "utf8"
-        )
-    cursor = db.cursor()
-    sql = "show tables;"
-    cursor.execute(sql)
-    tables = [cursor.fetchall()]
-    table_list = re.findall('(\'.*?\')',str(tables))
-    table_list = [re.sub("'",'',each) for each in table_list]
-    if 'tuniu' in table_list:
-        print('途牛存在')
-    else:
-        sql = """CREATE TABLE IF NOT EXISTS `tuniu`(
-            `ID` INT UNSIGNED AUTO_INCREMENT,
-            `url` TEXT NOT NULL,
-            `md5` TEXT NOT NULL,
-            PRIMARY KEY ( `ID` )
-            )ENGINE=InnoDB DEFAULT CHARSET=utf8;"""
-        cursor.execute(sql)
-    db.close()
-
 def chaxun_mysql(url):
     db = pymysql.connect(
         host = "127.0.0.1",
@@ -69,6 +42,25 @@ def chaxun_mysql(url):
         charset = "utf8"
         )
     cursor = db.cursor()
+    
+    # 仅在第一次执行时使用
+    tab_name = 'tuniu'
+    sql = "show tables;"
+    cursor.execute(sql)
+    tables = [cursor.fetchall()]
+    table_list = re.findall('(\'.*?\')',str(tables))
+    table_list = [re.sub("'",'',each) for each in table_list]
+    if tab_name in table_list:
+        print('表存在')
+    else:
+        sql = """CREATE TABLE IF NOT EXISTS `"""+tab_name+"""`(
+            `ID` INT UNSIGNED AUTO_INCREMENT,
+            `url` TEXT NOT NULL,
+            `md5` TEXT NOT NULL,
+            PRIMARY KEY ( `ID` )
+            )ENGINE=InnoDB DEFAULT CHARSET=utf8;"""
+        cursor.execute(sql)
+
     m2 = hashlib.md5()   
     m2.update(str(url).encode("utf8"))   
     md5_mm = str(m2.hexdigest())

@@ -72,7 +72,7 @@ function content_str_replace($content = '')
 add_filter('the_content', 'content_str_replace', 10);
 
 //保存日志时清除高度与宽度
-function wcc_replace_yupoo_url($post_id, $post)
+function wcc_replace_yupoo_url($post_id)
 {
     global $post_type;
     if ($post_type == 'post') {
@@ -82,7 +82,6 @@ function wcc_replace_yupoo_url($post_id, $post)
 
         remove_action('save_post', 'wcc_replace_yupoo_url');
         $content = get_post($post_id)->post_content;
-
         $content = preg_replace('/alt=""(.*?)<figcaption>(.*?)<\/figcaption>/', 'alt="$2"$1<figcaption>$2</figcaption>', $content);
 
         //保存日志时执行操作
