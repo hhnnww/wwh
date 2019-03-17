@@ -32,6 +32,15 @@
     s.parentNode.insertBefore(bp, s);
 })();
 </script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?dfdc6f1b928c60aac7142311f377fd81";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 </body>
 
 </html>
