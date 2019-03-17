@@ -60,36 +60,17 @@ function post_views($before = '(点击 ', $after = ' 次)', $echo = 1)
 function content_str_replace($content = '')
 {
     if (in_category('线路')) {
-        $content = preg_replace('/\.(jpg|png)/', '.$1?w=800', $content);
+        $content = preg_replace('/\.(jpg|png|jpeg)/', '.$1?w=800', $content);
     } else {
-        $content = preg_replace('/\.(jpg|png)/', '.$1?w=600', $content);
+        $content = preg_replace('/\.(jpg|png|jpeg)/', '.$1?w=600', $content);
     }
     // 替换图片的class值
     $content = str_replace('<img', '<img class="img-fluid" ', $content);
+    $content = preg_replace('/alt=""(.*?)<figcaption>(.*?)<\/figcaption>/', 'alt="$2"$1<figcaption>$2</figcaption>', $content);
 
     return $content;
 }
 add_filter('the_content', 'content_str_replace', 10);
-
-//保存日志时清除高度与宽度
-function wcc_replace_yupoo_url($post_id)
-{
-    global $post_type;
-    if ($post_type == 'post') {
-        if (wp_is_post_revision($post_id)) {
-            return false;
-        }
-
-        remove_action('save_post', 'wcc_replace_yupoo_url');
-        $content = get_post($post_id)->post_content;
-        $content = preg_replace('/alt=""(.*?)<figcaption>(.*?)<\/figcaption>/', 'alt="$2"$1<figcaption>$2</figcaption>', $content);
-
-        //保存日志时执行操作
-        wp_update_post(array('ID' => $post_id, 'post_content' => $content));
-        add_action('save_post', 'wcc_replace_yupoo_url');
-    }
-}
-add_action('save_post', 'wcc_replace_yupoo_url', 10, 2);
 
 // 第一张首图
 function get_st()
@@ -113,7 +94,6 @@ function register_custom_menu_page()
     add_menu_page('订单', '订单', 'administrator', 'dingdan', 'dingdan', '', 2);
 }
 add_action('admin_menu', 'register_custom_menu_page');
-
 function dingdan()
 {
     include get_template_directory() . '/dingdan.php';

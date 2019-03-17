@@ -44,22 +44,22 @@ def chaxun_mysql(url):
     cursor = db.cursor()
     
     # 仅在第一次执行时使用
-    tab_name = 'tuniu'
-    sql = "show tables;"
-    cursor.execute(sql)
-    tables = [cursor.fetchall()]
-    table_list = re.findall('(\'.*?\')',str(tables))
-    table_list = [re.sub("'",'',each) for each in table_list]
-    if tab_name in table_list:
-        print('表存在')
-    else:
-        sql = """CREATE TABLE IF NOT EXISTS `"""+tab_name+"""`(
-            `ID` INT UNSIGNED AUTO_INCREMENT,
-            `url` TEXT NOT NULL,
-            `md5` TEXT NOT NULL,
-            PRIMARY KEY ( `ID` )
-            )ENGINE=InnoDB DEFAULT CHARSET=utf8;"""
-        cursor.execute(sql)
+    # tab_name = 'tuniu'
+    # sql = "show tables;"
+    # cursor.execute(sql)
+    # tables = [cursor.fetchall()]
+    # table_list = re.findall('(\'.*?\')',str(tables))
+    # table_list = [re.sub("'",'',each) for each in table_list]
+    # if tab_name in table_list:
+    #     print('表存在')
+    # else:
+    #     sql = """CREATE TABLE IF NOT EXISTS `"""+tab_name+"""`(
+    #         `ID` INT UNSIGNED AUTO_INCREMENT,
+    #         `url` TEXT NOT NULL,
+    #         `md5` TEXT NOT NULL,
+    #         PRIMARY KEY ( `ID` )
+    #         )ENGINE=InnoDB DEFAULT CHARSET=utf8;"""
+    #     cursor.execute(sql)
 
     m2 = hashlib.md5()   
     m2.update(str(url).encode("utf8"))   
