@@ -19,4 +19,4 @@ def get_most_sug(word):
             all_words += get_sug(word+i+j)
     return list(set(all_words))
 
-print('\n'.join(get_most_sug('新疆旅游')))
+print('\n'.join(get_most_sug('新疆 旅游')))

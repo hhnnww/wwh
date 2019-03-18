@@ -13,6 +13,7 @@ import re
 import pymysql
 import hashlib
 
+from textrank4zh import TextRank4Keyword, TextRank4Sentence
 
 def chaxun_mysql(url):
     db = pymysql.connect(
@@ -104,7 +105,7 @@ def single_list(url):
 
 def post_to_wp(url):
     print(url)
-    if str(chaxun_mysql(url)) == '0':
+    if str(chaxun_mysql(url)) == '1':
         print('不存在，开始采集')
         wp = Client('https://www.xinjiangcn.com/xmlrpc.php',
                     'admin', '12qwaszx')
@@ -131,11 +132,29 @@ def post_to_wp(url):
         content = re.sub('<h[0-9]+.*?>', '<h2>', content)
         content = re.sub('(	)', '', content)
         content = re.sub(r'(\!\/.*?)"', '"', content)
-        post.content = content
 
-        post.id = wp.call(posts.NewPost(post))
-        print("http://www.xinjiangcn.com/?p="+str(post.id))
-        charu_mysql(url)
+        text = re.sub('<.*?>','',content)
+        text = re.sub(r'\s','',text)
+        
+        zy = ''
+        tr4s = TextRank4Sentence()
+        tr4s.analyze(text=text, lower=True, source = 'all_filters')
+        for item in tr4s.get_key_sentences(num=50):
+            zy = zy + item.sentence
+        
+        tag = []
+        tr4w = TextRank4Keyword()
+        tr4w.analyze(text=text, lower=True, window=2)
+        
+        for item in tr4w.get_keywords(20, word_min_len=3):
+            tag.append(item.word)
+            
+
+        post.content = zy + '\n\n' + content
+
+        # post.id = wp.call(posts.NewPost(post))
+        # print("http://www.xinjiangcn.com/?p="+str(post.id))
+        # charu_mysql(url)
 
         print('\n')
     else:
