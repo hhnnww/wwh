@@ -1,5 +1,16 @@
 <?php
-
+/*
+Plugin Name: WP BaiDu Submit
+Description: WP BaiDu Submit帮助具有百度站长平台链接提交权限的用户自动提交最新文章，以保证新链接可以及时被百度收录。
+Version: 1.2.1
+Plugin URI: https://wordpress.org/plugins/wp-baidu-submit/
+Author: Include
+Author URI: http://www.170mv.com/
+*/
+/*
+Publish Date: 2015-05-09
+Last Update: 2015-05-27
+*/
 date_default_timezone_set('Asia/Shanghai');
 add_action('publish_post', 'publish_bd_submit');
 function publish_bd_submit($post_ID){
@@ -72,7 +83,7 @@ function robots_log($post_ID){
 
 add_action('admin_menu', 'bd_submit_add_page');
 function bd_submit_add_page() {
-	add_menu_page( 'WP BaiDu Submit 设置', '百度自动提交', 'manage_options', 'wp_baidu_submit', 'bd_submit_settings' );
+	add_menu_page( 'WP BaiDu Submit 设置', 'BaiDu Submit', 'manage_options', 'wp_baidu_submit', 'bd_submit_settings' );
 	add_submenu_page('wp_baidu_submit', 'WP BaiDu Submit 设置', '设置', 'manage_options', 'wp_baidu_submit', 'bd_submit_settings' );
 	add_submenu_page('wp_baidu_submit', 'WP BaiDu Submit 提交结果', '提交结果', 'manage_options', 'wp_baidu_submit_result', 'bd_submit_result' );
 }
